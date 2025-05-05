@@ -16,7 +16,7 @@ const sendEmail = async (price: number) => {
 
     await transporter.sendMail({
         from: `"Yepoda Watchdog" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_USER,
+        to: process.env.EMAIL_TO,
         subject: `🎉 Cena spadła! Dewy Day za ${price} zł`,
         text: `🔥 Cena na yepoda.pl to teraz ${price} zł!\n\n👉 Link: ${URL}`,
     });
