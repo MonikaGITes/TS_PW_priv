@@ -26,7 +26,7 @@ jobs:
 
       - name: Run Yepoda price check
         run: |
-          TEST_MODE=true npx ts-node src/Yepoda_Dewy_Day.ts > output.log
+          TEST_MODE=true EMAIL_USER=${{ secrets.EMAIL_USER }} EMAIL_PASS=${{ secrets.EMAIL_PASS }} npx ts-node src/Yepoda_Dewy_Day.ts > output.log
 
       - name: Upload output log
         uses: actions/upload-artifact@v4
