@@ -1,5 +1,6 @@
 {
   "name": "moje_ceny",
+  "type": "commonjs",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {},
@@ -9,6 +10,8 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.3"
+    "@types/node": "^22.15.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
