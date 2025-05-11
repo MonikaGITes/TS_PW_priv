@@ -4,7 +4,9 @@ import { products } from './products';
 
 const checkPrices = async () => {
     const browser = await chromium.launch();
-    //const browser = await chromium.launch({ headless: false });
+    //const browser = await chromium.launch({ headless: false }); //odkomentuj, jeśli chcesz uruchomić z interfejsem graficznym
+    const productDetails: Array<{ name: string, price: number, url: string, promo: string, available: boolean }> = [];
+
     for (const product of products) {
         const page = await browser.newPage();
         await page.goto(product.url, { waitUntil: 'domcontentloaded' });
@@ -29,8 +31,7 @@ const checkPrices = async () => {
             console.log(`🔴 ${product.name} jest NIEDOSTĘPNY`);
         }
 
-
-
+        // Pobranie ceny produktu
         const priceText = await page.textContent(product.selector);
         if (!priceText) {
             console.error(`❌ Nie udało się odczytać ceny dla: ${product.name}`);
@@ -53,22 +54,22 @@ const checkPrices = async () => {
         const normalized = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
         console.log(`🔍 ${product.name}: ${normalized} zł`);
 
-// Sprawdzanie ceny i dostępności
-        if (normalized <= product.threshold && available) {
-            console.log(`✅ Bierzemy to! 🔥 ${product.name} - ${normalized} zł! 🏷️ ${promoText}\n👉 Link: ${product.url}`);
-
-            //await sendEmail(product.name, normalized, product.url, promoText); //odkomentujesz w przyszłości
-
-        } else if (!available) {
-            console.log(`⛔ ${product.name} - NIEDOSTĘPNY 😞 Cena: ${normalized} zł 🏷️ ${promoText}\n👉 Link: ${product.url}`);
-        } else {
-            console.log(`⏳ ${product.name} jeszcze nie... Cena: ${normalized} zł 🏷️ ${promoText}\n👉 Link: ${product.url}`);
-        }
+        // Zbieranie danych do raportu
+        productDetails.push({
+            name: product.name,
+            price: normalized,
+            url: product.url,
+            promo: promoText || 'Brak promocji',
+            available: available
+        });
 
         await page.close();
     }
 
     await browser.close();
+
+    // Wysyłanie codziennego raportu e-mail
+    await sendEmail(productDetails);
 };
 
 checkPrices();

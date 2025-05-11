@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export const sendEmail = async (products: Array<{ name: string, price: number, url: string }>) => {
+export const sendEmail = async (products: Array<{ name: string, price: number, url: string, promo: string, available: boolean }>) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -12,7 +12,7 @@ export const sendEmail = async (products: Array<{ name: string, price: number, u
     let emailText = '🔔 Codzienny raport produktów:\n\n';
 
     products.forEach(product => {
-        emailText += `📦 ${product.name}: ${product.price} zł\n👉 Link do produktu: ${product.url}\n\n`;
+        emailText += `📦 ${product.name}: ${product.price} zł\n👉 Link do produktu: ${product.url}\n🏷️ Promocja: ${product.promo}\n📦 Dostępność: ${product.available ? 'Dostępny' : 'Niedostępny'}\n\n`;
     });
 
     await transporter.sendMail({
