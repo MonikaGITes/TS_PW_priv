@@ -1,8 +1,8 @@
-name: Check Yepoda Price
+name: Check skin79 Price
 
 on:
   schedule:
-    - cron: '0 8 * * *' # codziennie o 8:00 rano UTC (czyli 10:00 w PL w czasie letnim)
+    - cron: '0 8 * * *' # codziennie o 6:00 rano UTC (czyli 08:00 w PL w czasie letnim)
   workflow_dispatch: # pozwala też odpalić ręcznie
 
 jobs:
@@ -24,12 +24,12 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Yepoda price check
+      - name: Run skin79 price check
         run: |
-          TEST_MODE=true EMAIL_USER=${{ secrets.EMAIL_USER }} EMAIL_PASS=${{ secrets.EMAIL_PASS }} EMAIL_TO=${{ secrets.EMAIL_TO }} npx ts-node src/Yepoda_Dewy_Day.ts > output.log
+          TEST_MODE=true EMAIL_USER=${{ secrets.EMAIL_USER }} EMAIL_PASS=${{ secrets.EMAIL_PASS }} EMAIL_TO=${{ secrets.EMAIL_TO }} npx ts-node watchdog/checkPriceskin79.ts> output.log
 
       - name: Upload output log
         uses: actions/upload-artifact@v4
         with:
-          name: yepoda-check-log
+          name: skin79-check-log
           path: output.log

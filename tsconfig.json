@@ -8,5 +8,5 @@
     "allowImportingTsExtensions": true,
     "moduleDetection": "force"
   },
-  "include": ["src"]
+  "include": ["src","watchdog"]
 }
