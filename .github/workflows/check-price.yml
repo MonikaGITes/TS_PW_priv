@@ -1,8 +1,11 @@
 name: Check skin79 Price
 
+permissions:
+  contents: read
+
 on:
   schedule:
-    - cron: '0 8 * * *' # codziennie o 6:00 rano UTC (czyli 08:00 w PL w czasie letnim)
+    - cron: '0 5 * * *' # codziennie o 5:00 rano UTC (czyli 07:00 w PL w czasie letnim)
   workflow_dispatch: # pozwala też odpalić ręcznie
 
 jobs:
