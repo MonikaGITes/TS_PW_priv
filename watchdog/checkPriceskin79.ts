@@ -77,7 +77,7 @@ const checkPrices = async () => {
     }
 
     await browser.close();
-    //await sendEmail(emailProducts.join('\n'));
+    await sendEmail(emailProducts.join('\n'));
 };
 
 checkPrices();
