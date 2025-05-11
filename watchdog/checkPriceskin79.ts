@@ -4,78 +4,68 @@ import { products } from './products';
 
 const checkPrices = async () => {
     const browser = await chromium.launch();
-    const reportData = [];
+    const results = [];
 
     for (const product of products) {
         const page = await browser.newPage();
         await page.goto(product.url, { waitUntil: 'domcontentloaded' });
 
-        // Akceptacja cookies, jeśli popup się pojawi
+        // Cookies
         try {
             const cookieButton = await page.waitForSelector('button.cookie-button-accept', { timeout: 3000 });
             await cookieButton.click();
-            console.log('🍪 Ciasteczka zaakceptowane');
-        } catch {
-            console.log('🍪 Brak ciasteczek do akceptacji');
-        }
+        } catch {}
 
-        // Sprawdzenie dostępności
+        // Dostępność
         let available = false;
         try {
             await page.waitForSelector('#addbasket > button', { timeout: 2000 });
             available = true;
-            console.log(`🟢 ${product.name} jest dostępny`);
-        } catch {
-            console.log(`🔴 ${product.name} jest NIEDOSTĘPNY`);
-        }
+        } catch {}
 
-        // Pobranie ceny
+        // Cena
         const priceText = await page.textContent(product.selector);
         if (!priceText) {
-            console.error(`❌ Nie udało się odczytać ceny dla: ${product.name}`);
-            await page.close();
+            console.error(`❌ Nie udało się odczytać ceny: ${product.name}`);
             continue;
         }
 
         const normalized = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
-        console.log(`🔍 ${product.name}: ${normalized} zł`);
 
-        // Pobranie informacji o promocji
+        // Promocja
         let promoText = '';
         try {
             const promo = await page.textContent('div.save-info');
-            if (promo) {
-                promoText = promo.trim();
-                console.log(`🏷️ Promocja: ${promoText}`);
-            }
-        } catch {
-            console.log('🏷️ Brak informacji o promocji');
-        }
+            if (promo) promoText = promo.trim();
+        } catch {}
 
-        // Generowanie werdyktu
+        // Werdykt
         let verdict = '';
         if (!available) {
             verdict = '⛔ NIEDOSTĘPNY 😞';
         } else if (normalized <= product.threshold) {
-            verdict = `✅ Bierzemy to! Cena ${normalized} zł ≤ próg ${product.threshold} zł 🔥`;
+            verdict = '🔥 Bierz!';
         } else {
-            verdict = `⏳ Jeszcze nie... Cena ${normalized} zł > próg ${product.threshold} zł`;
+            verdict = '⏳ Wstrzymaj się';
         }
-        console.log(`📊 Werdykt: ${verdict}`);
-        reportData.push({
+
+        const formatted = `📦 ${product.name} - aktualna cena to: ${normalized} zł, aktualna promocja to: ${promoText || 'brak'} (threshold to: ${verdict})\n👉 ${product.url}`;
+
+        console.log(formatted + '\n');
+
+        results.push({
             name: product.name,
             price: normalized,
             url: product.url,
-            promo: promoText || 'brak',
-            available,
-            verdict
+            promo: promoText,
+            verdict,
         });
 
         await page.close();
     }
 
     await browser.close();
-    await sendEmail(reportData);
+    //await sendEmail(results);
 };
 
 checkPrices();
