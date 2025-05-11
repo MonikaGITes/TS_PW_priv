@@ -4,8 +4,7 @@ import { products } from './products';
 
 const checkPrices = async () => {
     const browser = await chromium.launch();
-    //const browser = await chromium.launch({ headless: false }); //odkomentuj, jeśli chcesz uruchomić z interfejsem graficznym
-    const productDetails: Array<{ name: string, price: number, url: string, promo: string, available: boolean }> = [];
+    const reportData = [];
 
     for (const product of products) {
         const page = await browser.newPage();
@@ -22,7 +21,6 @@ const checkPrices = async () => {
 
         // Sprawdzenie dostępności
         let available = false;
-
         try {
             await page.waitForSelector('#addbasket > button', { timeout: 2000 });
             available = true;
@@ -31,16 +29,19 @@ const checkPrices = async () => {
             console.log(`🔴 ${product.name} jest NIEDOSTĘPNY`);
         }
 
-        // Pobranie ceny produktu
+        // Pobranie ceny
         const priceText = await page.textContent(product.selector);
         if (!priceText) {
             console.error(`❌ Nie udało się odczytać ceny dla: ${product.name}`);
+            await page.close();
             continue;
         }
 
+        const normalized = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
+        console.log(`🔍 ${product.name}: ${normalized} zł`);
+
         // Pobranie informacji o promocji
         let promoText = '';
-
         try {
             const promo = await page.textContent('div.save-info');
             if (promo) {
@@ -48,28 +49,33 @@ const checkPrices = async () => {
                 console.log(`🏷️ Promocja: ${promoText}`);
             }
         } catch {
-            console.log(`🏷️ Brak informacji o promocji`);
+            console.log('🏷️ Brak informacji o promocji');
         }
 
-        const normalized = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
-        console.log(`🔍 ${product.name}: ${normalized} zł`);
-
-        // Zbieranie danych do raportu
-        productDetails.push({
+        // Generowanie werdyktu
+        let verdict = '';
+        if (!available) {
+            verdict = '⛔ NIEDOSTĘPNY 😞';
+        } else if (normalized <= product.threshold) {
+            verdict = `✅ Bierzemy to! Cena ${normalized} zł ≤ próg ${product.threshold} zł 🔥`;
+        } else {
+            verdict = `⏳ Jeszcze nie... Cena ${normalized} zł > próg ${product.threshold} zł`;
+        }
+        console.log(`📊 Werdykt: ${verdict}`);
+        reportData.push({
             name: product.name,
             price: normalized,
             url: product.url,
-            promo: promoText || 'Brak promocji',
-            available: available
+            promo: promoText || 'brak',
+            available,
+            verdict
         });
 
         await page.close();
     }
 
     await browser.close();
-
-    // Wysyłanie codziennego raportu e-mail
-    await sendEmail(productDetails);
+    await sendEmail(reportData);
 };
 
 checkPrices();
