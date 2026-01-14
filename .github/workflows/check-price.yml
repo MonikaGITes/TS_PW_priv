@@ -1,12 +1,12 @@
-name: Check skin79 Price
+name: Check MY Prices
 
 permissions:
   contents: read
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Codziennie o 4:00 rano UTC (czyli 06:00 w PL. w czasie letnim)
-  workflow_dispatch: # pozwala też odpalić ręcznie
+    - cron: '0 4 * * *' # Codziennie o 4:00 rano UTC (06:00 w PL – czas letni)
+  workflow_dispatch:
 
 jobs:
   check-price:
@@ -26,6 +26,10 @@ jobs:
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+
+      # 👇 TO BYŁ BRAKUJĄCY ELEMENT
+      - name: Install xvfb
+        run: sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Run price check (headful)
         run: xvfb-run --auto-servernum TEST_MODE=true EMAIL_USER=${{ secrets.EMAIL_USER }} EMAIL_PASS=${{ secrets.EMAIL_PASS }} EMAIL_TO=${{ secrets.EMAIL_TO }} npx ts-node watchdog/checkMyPrices.ts > output.log
