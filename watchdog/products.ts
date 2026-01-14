@@ -1,60 +1,51 @@
 export const products = [
-//------VILLAGE11-------------------------------------------------------------------------------------------------------
+//------Buty LURSO-------------------------------------------------------------------------------------------------------
     {
-        name: 'VILLAGE 11 Skoncentrowane serum do cery trądzikowej',
-        url: 'https://skin79-sklep.pl/village-11-active-clean-serum-50ml.html',
-        selector: 'div.price span.current',
-        threshold: 39,
+        name: 'Czarne Botki Damskie na podwyższonej podeszwie LURSO model DAGIE BLACK',
+        url: 'https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H',
+        selector: '#box_productfull .basket .price em',
+        threshold: 299,
     },
+
+//------VILLAGE11-------------------------------------------------------------------------------------------------------
     {
         name: 'VILLAGE 11 Antybakteryjny żel oczyszczający do twarzy Active Clean',
         url: 'https://skin79-sklep.pl/village-11-active-clean-gel-cleanser-100ml.html',
         selector: 'div.price span.current',
         threshold: 49,
     },
-    {
-        name: 'VILLAGE 11 Antybakteryjny toner do twarzy Active Clean Toner 120ml',
-        url: 'https://skin79-sklep.pl/village-11-active-clean-toner-120ml.html',
-        selector: 'div.price span.current',
-        threshold: 39,
-    },
 //-------SKIN79---------------------------------------------------------------------------------------------------------
-    {
-        name: 'SKIN79 Barierowe serum naprawcze do twarzy Beblesh Red Repair Serum 50ml',
-        url: 'https://skin79-sklep.pl/skin79-kojace-serum-do-twarzy-beblesh-red-repair-serum-50ml.html',
-        selector: 'div.price span.current',
-        threshold: 49,
-    },
-    {
-        name: 'SKIN79 Ampułka redukująca przebarwienia i niedoskonałości Beblesh Dark Spot Ampoule 50ml',
-        url: 'https://skin79-sklep.pl/skin79-ampulka-redukujaca-przebrawienia-beblesh-dark-spot-ampoule-50ml.html',
-        selector: 'div.price span.current',
-        threshold: 50,
-    },
+//     {
+//         name: 'SKIN79 Barierowe serum naprawcze do twarzy Beblesh Red Repair Serum 50ml',
+//         url: 'https://skin79-sklep.pl/skin79-kojace-serum-do-twarzy-beblesh-red-repair-serum-50ml.html',
+//         selector: 'div.price span.current',
+//         threshold: 49,
+//     },
 //--------MIZON---------------------------------------------------------------------------------------------------------
+//     {
+//         name: 'MIZON Dwufazowa mgiełka do twarzy Hyalugen Double Layer Mist 100ml',
+//         url: 'https://skin79-sklep.pl/mizon-dwufazowa-mgielka-do-twarzy-hyalugen-double-layer-mist-100ml.html',
+//         selector: 'div.price span.current',
+//         threshold: 60,
+//     },
+//-------ZALANDO??------------------------------------------------------------------------------------------------------
     {
-        name: 'MIZON Silnie odżywcza esencja do twarzy ze sfermentowanych drożdży Skin Power Original First Essence 210ml',
-        url: 'https://skin79-sklep.pl/mizon-silnie-odzywcza-esencja-do-twarzy-ze-sfermentowanych-drozdzy-skin-power-original-first-essence-210ml.html',
-        selector: 'div.price span.current',
-        threshold: 80,
+        name: 'Marks & Spencer HOT WHEELS - Bluzka z długim rękawem',
+        url: 'https://www.zalando.pl/marks-and-spencer-2pk-hot-wheels-bluzka-z-dlugim-rekawem-dark-bluebrown-qm424g08y-t11.html',
+        selector: 'xpath=//*[@data-testid="pdp-price-container"]//p//span[1]',
+        threshold: 150,
+    },
+//-------MediaExpert??------------------------------------------------------------------------------------------------------
+    {
+        name: 'Smartfon APPLE iPhone 17 Pro 5G 256GB 6.3" 120Hz Kosmiczny pomarańcz',
+        url: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfon-apple-iphone-17-pro-5g-cosmic-orange-256gb',
+        selector: 'div.main-price',
+        threshold: 5500,
     },
     {
-        name: 'MIZON Serum wzmacniające 7 Vegan Peptide Booster Serum 150ml',
-        url: 'https://skin79-sklep.pl/mizon-7-vegan-peptide-booster-serum-150ml.html',
-        selector: 'div.price span.current',
-        threshold: 49,
-    },
-    {
-        name: 'MIZON Dwufazowa mgiełka do twarzy Hyalugen Double Layer Mist 100ml',
-        url: 'https://skin79-sklep.pl/mizon-dwufazowa-mgielka-do-twarzy-hyalugen-double-layer-mist-100ml.html',
-        selector: 'div.price span.current',
-        threshold: 60,
-    },
-    //------BENTON-------------------------------------------------------------------------------------------------------
-    {
-        name: 'BENTON Serum do twarzy z bakuchiolem Bakuchiol Serum 35ml',
-        url: 'https://skin79-sklep.pl/benton-serum-do-twarzy-z-bakuchiolem-bakuchiol-serum-35ml.html',
-        selector: 'div.price span.current',
-        threshold: 50,
-    },
+        name: 'Laptop APPLE MacBook Pro 2025 14" Retina M5 24GB RAM 1TB SSD macOS Gwiezdna czerń',
+        url: 'https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy/notebook-apple-macbook-pro-2025-mde34ze-a-m5-24gb-1tb-14-int-black',
+        selector: 'div.main-price',
+        threshold: 8500,
+    }
 ];

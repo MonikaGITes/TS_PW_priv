@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 5 * * *' # codziennie o 5:00 rano UTC (czyli 07:00 w PL w czasie letnim)
+    - cron: '0 4 * * *' # Codziennie o 4:00 rano UTC (czyli 06:00 w PL. w czasie letnim)
   workflow_dispatch: # pozwala też odpalić ręcznie
 
 jobs:
@@ -27,12 +27,11 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run skin79 price check
-        run: |
-          TEST_MODE=true EMAIL_USER=${{ secrets.EMAIL_USER }} EMAIL_PASS=${{ secrets.EMAIL_PASS }} EMAIL_TO=${{ secrets.EMAIL_TO }} npx ts-node watchdog/checkPriceskin79.ts> output.log
+      - name: Run price check (headful)
+        run: xvfb-run --auto-servernum TEST_MODE=true EMAIL_USER=${{ secrets.EMAIL_USER }} EMAIL_PASS=${{ secrets.EMAIL_PASS }} EMAIL_TO=${{ secrets.EMAIL_TO }} npx ts-node watchdog/checkMyPrices.ts > output.log
 
       - name: Upload output log
         uses: actions/upload-artifact@v4
         with:
-          name: skin79-check-log
+          name: check-log
           path: output.log

@@ -10,9 +10,9 @@ export const sendEmail = async (content: string) => {
     });
 
     await transporter.sendMail({
-        from: `"Skin79 Watchdog" <${process.env.EMAIL_USER}>`,
+        from: `"Your Watchdog" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_TO,
-        subject: '📈 Codzienny raport o produktach na Skin79',
+        subject: '📈 Codzienny raport o produktach',
         text: `🔔 Codzienny raport produktów:\n\n${content}`,
     });
 };
