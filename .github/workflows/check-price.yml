@@ -37,7 +37,6 @@ jobs:
           TEST_MODE: true
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-          EMAIL_TO: ${{ secrets.EMAIL_TO }}
         run: xvfb-run --auto-servernum npx ts-node watchdog/checkMyPrices.ts > output.log
 
       - name: Upload output log

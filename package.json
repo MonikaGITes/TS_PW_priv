@@ -3,7 +3,9 @@
   "type": "commonjs",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "watchdog": "ts-node watchdog/checkMyPrices.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -1,5 +1,6 @@
 //sendEmail.ts
 import nodemailer from 'nodemailer';
+import { emailConfig } from './config/notifications';
 
 export const sendEmail = async (content: string) => {
     const transporter = nodemailer.createTransport({
@@ -11,9 +12,9 @@ export const sendEmail = async (content: string) => {
     });
 
     await transporter.sendMail({
-        from: `"Your Watchdog" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_TO,
-        subject: '📈 Codzienny raport o produktach',
+        from: `"${emailConfig.senderName}" <${process.env.EMAIL_USER}>`,
+        to: emailConfig.recipients.join(', '),
+        subject: emailConfig.subject,
         text: `🔔 Codzienny raport produktów:\n\n${content}`,
     });
 };

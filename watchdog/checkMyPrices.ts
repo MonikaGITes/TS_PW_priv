@@ -1,7 +1,7 @@
 //checkMyPrices.ts
 import { chromium } from 'playwright';
 import { sendEmail } from './sendEmail';
-import { products } from './products';
+import { products } from './config/products';
 
 const extractDiscountPercentage = (promo: string): string => {
     const match = promo.match(/taniej\s*o\s*(\d+)%/i);
@@ -36,7 +36,7 @@ const checkPrices = async () => {
         const page = await context.newPage();
         await page.goto(product.url, { waitUntil: 'domcontentloaded' });
 
-// Akceptacja cookies (timing + iframe)
+        // Akceptacja cookies (timing + iframe)
         try {
             const acceptWords = ['akceptuj', 'zaakceptuj', 'accept', 'zgadzam', 'allow'];
 
@@ -75,13 +75,13 @@ const checkPrices = async () => {
                             }
                             return false;
                         }, { acceptWords });
-                    } catch {}
+                    } catch { }
                 }
             }
-        } catch {}
+        } catch { }
 
 
-// Sprawdzenie dostępności – deterministyczne CTA zakupowe
+        // Sprawdzenie dostępności – deterministyczne CTA zakupowe
         let available = false;
 
         try {
@@ -151,7 +151,7 @@ const checkPrices = async () => {
         try {
             const promoRaw = await page.textContent('div.save-info');
             if (promoRaw) promoText = promoRaw.trim();
-        } catch {}
+        } catch { }
 
         const discountPercent = extractDiscountPercentage(promoText);
         //const normalizedPrice = parseFloat(priceText.replace(/[^\d,]/g, '').replace(',', '.'));
