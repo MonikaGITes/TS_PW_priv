@@ -5,7 +5,6 @@
     "moduleResolution": "NodeNext",
     "esModuleInterop": true,
     "strict": true,
-    "allowImportingTsExtensions": true,
     "moduleDetection": "force"
   },
   "include": ["src","watchdog"]

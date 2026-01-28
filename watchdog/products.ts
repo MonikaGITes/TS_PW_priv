@@ -1,3 +1,4 @@
+//products.ts
 export const products = [
 //------Buty LURSO-------------------------------------------------------------------------------------------------------
     {
@@ -8,12 +9,12 @@ export const products = [
     },
 
 //------VILLAGE11-------------------------------------------------------------------------------------------------------
-    {
-        name: 'VILLAGE 11 Antybakteryjny żel oczyszczający do twarzy Active Clean',
-        url: 'https://skin79-sklep.pl/village-11-active-clean-gel-cleanser-100ml.html',
-        selector: 'div.price span.current',
-        threshold: 49,
-    },
+    // {
+    //     name: 'VILLAGE 11 Antybakteryjny żel oczyszczający do twarzy Active Clean',
+    //     url: 'https://skin79-sklep.pl/village-11-active-clean-gel-cleanser-100ml.html',
+    //     selector: 'div.price span.current',
+    //     threshold: 49,
+    // },
 //-------SKIN79---------------------------------------------------------------------------------------------------------
 //     {
 //         name: 'SKIN79 Barierowe serum naprawcze do twarzy Beblesh Red Repair Serum 50ml',
@@ -29,18 +30,18 @@ export const products = [
 //         threshold: 60,
 //     },
 //-------ZALANDO??------------------------------------------------------------------------------------------------------
-    {
-        name: 'Marks & Spencer HOT WHEELS - Bluzka z długim rękawem',
-        url: 'https://www.zalando.pl/marks-and-spencer-2pk-hot-wheels-bluzka-z-dlugim-rekawem-dark-bluebrown-qm424g08y-t11.html',
-        selector: 'xpath=//*[@data-testid="pdp-price-container"]//p//span[1]',
-        threshold: 150,
-    },
+    // {
+    //     name: 'Marks & Spencer HOT WHEELS - Bluzka z długim rękawem',
+    //     url: 'https://www.zalando.pl/marks-and-spencer-2pk-hot-wheels-bluzka-z-dlugim-rekawem-dark-bluebrown-qm424g08y-t11.html',
+    //     selector: 'xpath=//*[@data-testid="pdp-price-container"]//p//span[1]',
+    //     threshold: 150,
+    // },
 //-------MediaExpert??------------------------------------------------------------------------------------------------------
     {
-        name: 'Smartfon APPLE iPhone 17 Pro 5G 256GB 6.3" 120Hz Kosmiczny pomarańcz',
-        url: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartfony/smartfon-apple-iphone-17-pro-5g-cosmic-orange-256gb',
+        name: 'Sluchawki Bluetooth Apple AirPods 4',
+        url: 'https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-bluetooth-apple-airpods-4',
         selector: 'div.main-price',
-        threshold: 5500,
+        threshold: 490,
     },
     {
         name: 'Laptop APPLE MacBook Pro 2025 14" Retina M5 24GB RAM 1TB SSD macOS Gwiezdna czerń',

@@ -1,3 +1,4 @@
+//checkMyPrices.ts
 import { chromium } from 'playwright';
 import { sendEmail } from './sendEmail';
 import { products } from './products';
