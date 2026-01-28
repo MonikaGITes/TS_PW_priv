@@ -30,7 +30,8 @@ jobs:
 
       # 👇 TO BYŁ BRAKUJĄCY ELEMENT
       - name: Install xvfb
-        run: sudo apt-get update && sudo apt-get install -y xvfb
+        # run: sudo apt-get update && sudo apt-get install -y xvfb
+        run: xvfb-run --auto-servernum npx ts-node watchdog/checkMyPrices.ts > output.log
 
       - name: Run price check (headful)
         env:
