@@ -27,7 +27,7 @@ const formatProductInfo = (
 const checkPrices = async () => {
     const browser = await chromium.launch({
         headless: false, // 👈 HEADFUL
-        // slowMo: 100,     // 👈 opcjonalnie, bardzo polecam
+        slowMo: 100,     // 👈 opcjonalnie, bardzo polecam
     });
     const emailProducts: string[] = [];
 

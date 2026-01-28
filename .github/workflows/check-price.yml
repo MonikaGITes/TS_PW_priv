@@ -1,4 +1,3 @@
-#check-price.yml
 name: Check MY Prices
 
 permissions:
@@ -6,12 +5,13 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Codziennie o 4:00 rano UTC (06:00 w PL – czas letni)
+    - cron: '0 4 * * *' # Codziennie o 4:00 UTC
   workflow_dispatch:
 
 jobs:
   check-price:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repo
@@ -28,17 +28,18 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # 👇 TO BYŁ BRAKUJĄCY ELEMENT
       - name: Install xvfb
-        # run: sudo apt-get update && sudo apt-get install -y xvfb
-        run: xvfb-run --auto-servernum npx ts-node watchdog/checkMyPrices.ts > output.log
+        run: sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Run price check (headful)
         env:
           TEST_MODE: true
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-        run: xvfb-run --auto-servernum npx ts-node watchdog/checkMyPrices.ts > output.log
+          CI: true
+        run: |
+          xvfb-run --auto-servernum \
+            npx ts-node watchdog/checkMyPrices.ts 2>&1 | tee output.log
 
       - name: Upload output log
         uses: actions/upload-artifact@v4
