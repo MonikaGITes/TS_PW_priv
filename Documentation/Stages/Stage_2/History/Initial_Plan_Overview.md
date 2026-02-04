@@ -248,3 +248,6 @@ Zostawić w checkMyPrices.ts tylko:
 
 Dlaczego na końcu:
 Bo dopiero wtedy wiemy, co faktycznie jest core, a co sterowaniem.
+
+--->> po kazdym kamieniu milowym zrob walkthrough
+--->> kiedy wszystko bedzie zrobione zrob podsumowanie etapu 2 i zaktualizuj dokumentację

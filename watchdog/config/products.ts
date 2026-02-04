@@ -1,12 +1,12 @@
 //products.ts
 export const products = [
     //------Buty LURSO-------------------------------------------------------------------------------------------------------
-    {
-        name: 'Czarne Botki Damskie na podwyższonej podeszwie LURSO model DAGIE BLACK',
-        url: 'https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H',
-        selector: '#box_productfull .basket .price em',
-        threshold: 299,
-    },
+    // {
+    //     name: 'Czarne Botki Damskie na podwyższonej podeszwie LURSO model DAGIE BLACK',
+    //     url: 'https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H',
+    //     selector: '#box_productfull .basket .price em',
+    //     threshold: 299,
+    // },
 
     //------VILLAGE11-------------------------------------------------------------------------------------------------------
     // {
@@ -38,10 +38,10 @@ export const products = [
     // },
     //-------MediaExpert??------------------------------------------------------------------------------------------------------
     {
-        name: 'Sluchawki Bluetooth Apple AirPods 4',
-        url: 'https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-bluetooth-apple-airpods-4',
+        name: 'Sluchawki Bluetooth Apple AirPods Pro 3',
+        url: 'https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-bluetooth-apple-airpods-pro-3',
         selector: 'div.main-price',
-        threshold: 490,
+        threshold: 800,
     },
     {
         name: 'Laptop APPLE MacBook Pro 2025 14" Retina M5 24GB RAM 1TB SSD macOS Gwiezdna czerń',

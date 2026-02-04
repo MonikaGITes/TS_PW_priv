@@ -24,5 +24,5 @@ export const emailConfig = {
     subject: '📈 Codzienny raport o produktach',
 
     /** Sender display name */
-    senderName: 'Your Watchdog',
+    senderName: 'My Watchdog',
 };

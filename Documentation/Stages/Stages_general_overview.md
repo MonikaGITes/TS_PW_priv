@@ -92,3 +92,7 @@ Cel: WatchDog jako usługa.
 	•	mobilka
 	•	web UI
 	•	CLI
+
+
+-->> po kazdym kamieniu milowym zrob walkthrough
+--->> kiedy wszystko bedzie zrobione zrob podsumowanie etapów i zaktualizuj dokumentację
