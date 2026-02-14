@@ -40,6 +40,7 @@ This stage builds upon the **immutable foundation** of Stage 2.
 -   **Architecture Defined**: The [CI Delivery Model](Stage_3_CI_Delivery_Model.md) is the source of truth.
 -   **Milestone 3.4**: CI Implementation is COMPLETE.
 -   **Stage 3 Status**: Stage 3 is now functionally COMPLETE.
+-   **Stage 3.5 Cleanup**: `products.ts` deleted. JSON is the sole source of truth.
 
 ---
 

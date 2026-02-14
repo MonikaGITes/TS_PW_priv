@@ -15,6 +15,7 @@ interface JsonProduct {
     url: string;
     targetPrice: number;
     shop: string;
+    disabled?: boolean; // New Flag
 }
 
 interface RuntimeProduct extends JsonProduct {
@@ -45,16 +46,18 @@ const loadProducts = (): RuntimeProduct[] => {
     const rawData = fs.readFileSync(PRODUCTS_FILE, 'utf-8');
     const jsonProducts: JsonProduct[] = JSON.parse(rawData);
 
-    return jsonProducts.map(p => {
-        const config = SHOP_CONFIGS[p.shop];
-        if (!config) {
-            throw new Error(`Unknown shop '${p.shop}' for product '${p.name}'`);
-        }
-        return {
-            ...p,
-            selector: config.priceSelector
-        };
-    });
+    return jsonProducts
+        .filter(p => p.disabled !== true) // Filter disabled products
+        .map(p => {
+            const config = SHOP_CONFIGS[p.shop];
+            if (!config) {
+                throw new Error(`Unknown shop '${p.shop}' for product '${p.name}'`);
+            }
+            return {
+                ...p,
+                selector: config.priceSelector
+            };
+        });
 };
 
 const extractDiscountPercentage = (promo: string): string => {

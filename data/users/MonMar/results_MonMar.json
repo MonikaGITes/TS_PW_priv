@@ -1,36 +1,20 @@
 {
-  "timestamp": "2026-02-14T11:10:52.151Z",
+  "timestamp": "2026-02-14T12:50:39.585Z",
   "results": [
     {
-      "name": "Czarne Botki Damskie na podwyższonej podeszwie LURSO model DAGIE BLACK",
-      "url": "https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H",
-      "price": 314.1,
+      "name": "Słuchawki nauszne APPLE AirPods Max ANC Pomarańczowy",
+      "url": "https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-apple-airpods-max-nauszne-orange-1",
+      "price": 2215.07,
       "isAvailable": true,
       "verdict": "WAIT",
       "discount": "brak"
     },
     {
-      "name": "Sluchawki Bluetooth Apple AirPods Pro 3",
-      "url": "https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-bluetooth-apple-airpods-pro-3",
-      "price": 969,
+      "name": "Apple AirPods Max - Słuchawki bezprzewodowe Bluetooth (USB-C) - Pomarańczowe",
+      "url": "https://www.empik.com/apple-airpods-max-usb-c-pomaranczowe-apple,p1596804050,elektronika-p",
+      "price": 2398,
       "isAvailable": true,
       "verdict": "WAIT",
-      "discount": "brak"
-    },
-    {
-      "name": "Apple Watch SE 3gen GPS 40mm koperta z aluminium (północ) ",
-      "url": "https://www.mediaexpert.pl/smartfony-i-zegarki/smartwatche-i-zegarki/smartwatche/smartwatch-apple-watch-se-3-40-m-al-m-sb-sm-gps-mgp",
-      "price": 996.99,
-      "isAvailable": true,
-      "verdict": "WAIT",
-      "discount": "brak"
-    },
-    {
-      "name": "Laptop APPLE MacBook Pro 2024 14\" Retina M4Pro 24GB RAM 512GB SSD macOS Gwiezdna czerń",
-      "url": "https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy/notebook-apple-macbook-pro-2024-m4pro-24gb-512gb-14-int-black",
-      "price": null,
-      "isAvailable": false,
-      "verdict": "UNAVAILABLE",
       "discount": "brak"
     }
   ]

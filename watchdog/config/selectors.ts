@@ -52,6 +52,13 @@ export const SHOP_CONFIGS: Record<string, ShopConfig> = {
         priceSelector: 'div.main-price',
         promotionSelector: 'div.save-info',
     },
+
+    'empik': {
+        shopId: 'empik',
+        priceStrategy: 'standard',
+        priceSelector: 'span[data-ta="price"]',
+        promotionSelector: 'div.save-info',
+    },
 };
 
 /**
