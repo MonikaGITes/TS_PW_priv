@@ -1,0 +1,60 @@
+
+name: WatchDog Headful Check
+
+on:
+  schedule:
+    # Run at 4:00 AM and 4:00 PM UTC daily
+    - cron: '0 4,16 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  watchdog-run:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run WatchDog (Headful with xvfb)
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+        run: |
+          xvfb-run --auto-servernum --server-args="-screen 0 1280x960x24" \
+          npm run watchdog
+
+      - name: Commit and Push Results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Switch to 'data' branch (create if not exists)
+          git checkout -B data
+          
+          # Add only the results file
+          git add data/users/MonMar/results_MonMar.json
+          
+          # Commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "CI: update MonMar results [skip ci]"
+            git push origin data --force
+          fi
