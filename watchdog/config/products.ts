@@ -1,12 +1,12 @@
 //products.ts
 export const products = [
     //------Buty LURSO-------------------------------------------------------------------------------------------------------
-    // {
-    //     name: 'Czarne Botki Damskie na podwyższonej podeszwie LURSO model DAGIE BLACK',
-    //     url: 'https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H',
-    //     selector: '#box_productfull .basket .price em',
-    //     threshold: 299,
-    // },
+    {
+        name: 'Czarne Botki Damskie na podwyższonej podeszwie LURSO model DAGIE BLACK',
+        url: 'https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H',
+        selector: '#box_productfull .basket .price em',
+        threshold: 299,
+    },
 
     //------VILLAGE11-------------------------------------------------------------------------------------------------------
     // {
@@ -42,10 +42,17 @@ export const products = [
         url: 'https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-bluetooth-apple-airpods-pro-3',
         selector: 'div.main-price',
         threshold: 800,
+    
     },
     {
-        name: 'Laptop APPLE MacBook Pro 2025 14" Retina M5 24GB RAM 1TB SSD macOS Gwiezdna czerń',
-        url: 'https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy/notebook-apple-macbook-pro-2025-mde34ze-a-m5-24gb-1tb-14-int-black',
+        name: 'Apple Watch SE 3gen GPS 40mm koperta z aluminium (północ) ',
+        url: 'https://www.mediaexpert.pl/smartfony-i-zegarki/smartwatche-i-zegarki/smartwatche/smartwatch-apple-watch-se-3-40-m-al-m-sb-sm-gps-mgp',
+        selector: 'div.main-price',
+        threshold: 900,
+    },
+    {
+        name: 'Laptop APPLE MacBook Pro 2024 14" Retina M4Pro 24GB RAM 512GB SSD macOS Gwiezdna czerń',
+        url: 'https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy/notebook-apple-macbook-pro-2024-m4pro-24gb-512gb-14-int-black',
         selector: 'div.main-price',
         threshold: 8500,
     }

@@ -60,7 +60,7 @@ To jest ważne:
 
 ⸻
 
-3️⃣ ETAP 2 — EKSTRAKCJA CORE (NEXT, JESZCZE NIE RUSZONE)
+3️⃣ ETAP 2 — EKSTRAKCJA CORE (ZAMKNIĘTY ✅)
 
 Cel: przekształcić skrypt w silnik backendowy, BEZ zmiany zachowania.
 
@@ -79,7 +79,7 @@ Efekt:
 
 ⸻
 
-4️⃣ ETAP 3 — API (PRZYSZŁOŚĆ)
+4️⃣ ETAP 3 — API
 
 Cel: WatchDog jako usługa.
 	•	endpointy HTTP
