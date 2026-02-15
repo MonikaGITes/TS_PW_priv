@@ -49,4 +49,28 @@ graph LR
 
 1.  Open the project in Xcode.
 2.  Verify JSON decoding on a real device/simulator.
-3.  Refine UI/UX (App Icon, Loading States).
+
+## 6. UI Redesign – Gradient Premium Theme
+
+Stage 4.1 introduced a complete UI overhaul to move away from the default generic list style to a custom, premium aesthetic.
+
+### Design System
+- **Background**: Global dark linear gradient (#3C6FF7 → #8448F7, diagonally).
+- **Cards**: Custom rounded cards (`ProductCardView`) with soft shadows and translucent backgrounds.
+- **Typography**: Modern, bold headlines with high-contrast price display.
+- **Badges**: Gradient-filled pills for "BUY" verdicts; subtle opacity for "WAIT".
+
+### Interaction Changes
+- **Navigation**: Products are now interactive cards.
+- **Action**: Tapping a card opens the product URL in Safari.
+
+## 7. UI Architecture Fix (Stage 4.2)
+
+Stage 4.2 enforced a strict "Atomic Theme" architecture to resolve state consistency issues.
+
+### Key Changes
+- **Atomic Themes**: Themes now package background assets and colors together (`.darkViolet`, `.auroraGlass`).
+- **No Wallpaper Toggle**: Backgrounds are strictly tied to the theme to ensure visual cohesion.
+- **Asset Cleanup**: Renamed assets to standard conventions (`dark_violet_background`).
+- **Header Integration**: Header now blends seamlessly with the background using transparency.
+
