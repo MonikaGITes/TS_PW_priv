@@ -5,7 +5,7 @@
         "url": "https://lurso.pl/pl/p/Czarne-Botki-Damskie-na-podwyzszonej-podeszwie-LURSO-model-DAGIE-BLACK/1159?srsltid=AfmBOoov_gmOK2ZsDTAxlSNptkrO41y3UEOoOhq4diXG2vplLa_CAi7H",
         "targetPrice": 299,
         "shop": "lurso",
-        "disabled": true       
+        "disabled": false      
     },
     {
         "id": "me-airpods-3",
@@ -13,7 +13,7 @@
         "url": "https://www.mediaexpert.pl/telewizory-i-rtv/sluchawki/wszystkie-sluchawki/sluchawki-bluetooth-apple-airpods-pro-3",
         "targetPrice": 800,
         "shop": "mediaexpert",
-        "disabled": true
+        "disabled": false
     },
     {
         "id": "me-airpods-max",
@@ -37,7 +37,7 @@
         "url": "https://www.mediaexpert.pl/smartfony-i-zegarki/smartwatche-i-zegarki/smartwatche/smartwatch-apple-watch-se-3-40-m-al-m-sb-sm-gps-mgp",
         "targetPrice": 900,
         "shop": "mediaexpert",
-        "disabled": true
+        "disabled": false
     },
     {
         "id": "me-macbook-pro-m4",
@@ -45,6 +45,6 @@
         "url": "https://www.mediaexpert.pl/komputery-i-tablety/laptopy-i-ultrabooki/laptopy/notebook-apple-macbook-pro-2024-m4pro-24gb-512gb-14-int-black",
         "targetPrice": 8500,
         "shop": "mediaexpert",
-        "disabled": true
+        "disabled": false
     }
 ]
