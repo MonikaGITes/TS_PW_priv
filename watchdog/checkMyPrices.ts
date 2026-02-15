@@ -123,12 +123,12 @@ const checkPrices = async () => {
 
                     // Sprawdzenie promocji (tylko dla dostępnych)
                     // TODO: Move promotion selector to config in future cleanup if consistent across shops
-                    let promoText = '';
-                    try {
-                        const promoRaw = await page.textContent('div.save-info');
-                        if (promoRaw) promoText = promoRaw.trim();
-                    } catch { }
-                    discountPercent = extractDiscountPercentage(promoText);
+                    // let promoText = '';
+                    // try {
+                    //     const promoRaw = await page.textContent('div.save-info');
+                    //     if (promoRaw) promoText = promoRaw.trim();
+                    // } catch { }
+                    // discountPercent = extractDiscountPercentage(promoText);
                 }
             }
 
